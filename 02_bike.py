@@ -1,9 +1,10 @@
-chainring = 52
-cog = 11
-ratio = chainring / float(cog)
-print(ratio)
+class Gear:
+    def __init__(self, chainring, cog):
+        self.chainring = chainring
+        self.cog = cog
 
-chainring = 30
-cog = 27
-ratio = chainring / float(cog)
-print(ratio)
+    def ratio(self):
+        return self.chainring / float(self.cog)
+
+print(Gear(52, 11).ratio())
+print(Gear(30, 27).ratio())
