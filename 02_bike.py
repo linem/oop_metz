@@ -21,7 +21,11 @@ class RevealingReferences:
 
     def diameters(self):
         for wheel in self.wheels:
-            print("wheel diameter:", wheel.rim + (wheel.tire * 2))
+            print("wheel diameter:", self.diameter(wheel))
+
+    def diameter(self, wheel):
+        return wheel.rim + (wheel.tire * 2)
+
 
     class Wheel:
         def __init__(self, rim, tire):
