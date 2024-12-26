@@ -21,20 +21,3 @@ class Gear:
 
 print(Gear(52, 11, 26, 1.5).gear_inches())
 print(Gear(52, 11, 24, 1.25).gear_inches())
-
-
-class RevealingReferences:
-    def __init__(self, data):
-        self.wheels = self.wheelify(data)
-
-    def diameters(self):
-        for wheel in self.wheels:
-            print("wheel diameter:", self.diameter(wheel))
-
-    def wheelify(self, data):
-        return [self.Wheel(cell[0], cell[1]) for cell in data]
-
-
-
-# obj = RevealingReferences([[622, 20], [622, 23], [559, 30], [559, 40]])
-# obj.diameters()
