@@ -8,11 +8,14 @@ class Gear:
     def ratio(self):
         return self.chainring / float(self.cog)
 
-    def gear_inches(self):
-        return self.ratio() * (self.rim + (self.tire * 2))
+    def diameter(self):
+        return self.rim + (self.tire * 2)
 
-# print(Gear(52, 11, 26, 1.5).gear_inches())
-# print(Gear(52, 11, 24, 1.25).gear_inches())
+    def gear_inches(self):
+        return self.ratio() * self.diameter()
+
+print(Gear(52, 11, 26, 1.5).gear_inches())
+print(Gear(52, 11, 24, 1.25).gear_inches())
 
 
 class RevealingReferences:
@@ -37,5 +40,5 @@ class RevealingReferences:
 
 
 
-obj = RevealingReferences([[622, 20], [622, 23], [559, 30], [559, 40]])
-obj.diameters()
+# obj = RevealingReferences([[622, 20], [622, 23], [559, 30], [559, 40]])
+# obj.diameters()
