@@ -6,6 +6,13 @@ class Gear:
         self.tire = tire
 
     def gear_inches(self):
+        """
+        Gear object depends on:
+        a) the class name of the Wheel class,
+        b) the Wheel object contains a diameter method,
+        c) the Wheel class requires two arguments rim and tire,
+        d) the order of the arguments rim and tire
+        """
         return self.ratio() * Wheel(self.rim, self.tire).diameter()
 
     def ratio(self):
