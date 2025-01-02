@@ -1,14 +1,22 @@
+from functools import cached_property
+
+
 class Gear:
     def __init__(self, chainring, cog, rim, tire):
         self.chainring = chainring
         self.cog = cog
-        self.wheel = Wheel(rim, tire)
+        self.rim = rim
+        self.tire = tire
 
     def gear_inches(self):
         return self.ratio() * self.wheel.diameter()
 
     def ratio(self):
         return self.chainring / float(self.cog)
+
+    @cached_property
+    def wheel(self):
+        return Wheel(self.rim, self.tire)
 
 
 class Wheel:
