@@ -1,14 +1,10 @@
 class Gear:
-    def __init__(self, chainring, cog, wheel):
+    def __init__(self, chainring, cog, rim, tire):
         self.chainring = chainring
         self.cog = cog
-        self.wheel = wheel
+        self.wheel = Wheel(rim, tire)
 
     def gear_inches(self):
-        """
-        Now Gear object only depends on:
-        b) a 'duck' object with a diameter method,
-        """
         return self.ratio() * self.wheel.diameter()
 
     def ratio(self):
@@ -24,4 +20,4 @@ class Wheel:
         return self.rim + (self.tire * 2)
 
 
-print(Gear(52, 11, Wheel(26, 1.5)).gear_inches())
+print(Gear(52, 11, 26, 1.5).gear_inches())
