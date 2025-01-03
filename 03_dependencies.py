@@ -1,6 +1,3 @@
-from functools import cached_property
-
-
 class Gear:
     def __init__(self, chainring=40, cog=11, wheel=None):
         self.chainring = chainring
