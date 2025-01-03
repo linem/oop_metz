@@ -1,17 +1,9 @@
-class Gear:
-    def __init__(self, chainring=40, cog=11, wheel=None):
-        self.chainring = chainring
-        self.cog = cog
-        self.wheel = wheel
+from external_gear_module import Gear
 
-    def gear_inches(self):
-        return self.ratio() * self.diameter()
 
-    def diameter(self):
-        return self.wheel.diameter()
-
-    def ratio(self):
-        return self.chainring / float(self.cog)
+class GearWrapper:
+    def __init__(self, chainring=None, cog=None, wheel=None):
+        self.gear = Gear(chainring, cog, wheel)
 
 
 class Wheel:
@@ -23,11 +15,8 @@ class Wheel:
         return self.rim + (self.tire * 2)
 
 
-print(Gear(
+print(GearWrapper(
     wheel=Wheel(26, 1.5),
     chainring=52,
-    cog=11).gear_inches()
-      )
-print(Gear(
-    wheel=Wheel(26, 1.5)).chainring
+    cog=11).gear.gear_inches()
       )
